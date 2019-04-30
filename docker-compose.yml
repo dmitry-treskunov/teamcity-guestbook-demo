@@ -39,6 +39,6 @@ services:
   db:
     build: database
     ports:
-      - "5432:5432"
+      - "5632:5432"
     environment:
       POSTGRES_PASSWORD: hunter2
