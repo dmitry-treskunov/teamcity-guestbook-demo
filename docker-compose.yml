@@ -22,6 +22,7 @@ services:
       dockerfile: Dockerfile
       args:
         JAR_FILE: build/libs/guestbook-0.1.0.jar
+    command: "java -jar /app/app.jar"
     ports:
       - "8080:8080"
     environment:
