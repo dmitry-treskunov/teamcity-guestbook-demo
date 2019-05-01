@@ -28,7 +28,7 @@ public class EntryRequestModel {
     }
 
     public String getImageUrl() {
-        return "";
+        return this.imageUrl;
     }
 
     @JsonSetter("img_url")
