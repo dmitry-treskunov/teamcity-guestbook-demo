@@ -19,7 +19,8 @@ changeBuildType(RelativeId("DeployStaging")) {
         update(RelativeId("Build_ScanForVulnerabilities")) {
             snapshot {
                 reuseBuilds = ReuseBuilds.NO
-                onDependencyCancel = FailureAction.ADD_PROBLEM
+                onDependencyFailure = FailureAction.IGNORE
+                onDependencyCancel = FailureAction.IGNORE
             }
         }
 
