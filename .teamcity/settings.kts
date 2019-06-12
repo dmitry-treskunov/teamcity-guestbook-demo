@@ -1,10 +1,10 @@
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
-import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.FileContentReplacer
-import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.dockerSupport
-import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.replaceContent
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.*
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.dockerCommand
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.v2018_2.failureConditions.BuildFailureOnMetric
+import jetbrains.buildServer.configs.kotlin.v2018_2.failureConditions.failOnMetricChange
 import jetbrains.buildServer.configs.kotlin.v2018_2.triggers.vcs
 
 /*
