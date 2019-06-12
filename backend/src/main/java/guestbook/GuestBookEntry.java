@@ -20,7 +20,7 @@ public class GuestBookEntry {
     }
 
     public String getMessage() {
-        return message;
+        return message + "!";
     }
 
     public String getImageUrl() {
