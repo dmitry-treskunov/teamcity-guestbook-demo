@@ -66,6 +66,18 @@ object Build_1 : BuildType({
             dockerImage = "openjdk:8-jdk"
         }
     }
+
+    features {
+        pullRequests {
+            vcsRootExtId = "${DslContext.settingsRoot.id}"
+            provider = github {
+                authType = token {
+                    token = "credentialsJSON:6a41e8a0-1293-48e3-93c6-b961214f46e3"
+                }
+                filterAuthorRole = PullRequests.GitHubRoleFilter.MEMBER_OR_COLLABORATOR
+            }
+        }
+    }
 })
 
 object BuildBackendImage : BuildType({
