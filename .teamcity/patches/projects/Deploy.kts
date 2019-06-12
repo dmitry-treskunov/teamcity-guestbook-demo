@@ -27,7 +27,7 @@ changeProject(RelativeId("Deploy")) {
                 """.trimIndent())
                 param("format", "duration")
                 param("hideFilters", "")
-                param("title", "Commit to Deployment delay")
+                param("title", "Commit to Deployment interval")
                 param("defaultFilters", "")
                 param("seriesTitle", "Serie")
             }
