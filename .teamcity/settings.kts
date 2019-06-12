@@ -29,7 +29,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 'Debug' option is available in the context menu for the task.
 */
 
-version = "2018.2"
+version = "2019.1"
 
 project {
 
@@ -317,7 +317,8 @@ object DeployStaging : BuildType({
         }
         snapshot(Build_ScanForVulnerabilities) {
             reuseBuilds = ReuseBuilds.NO
-            onDependencyFailure = FailureAction.FAIL_TO_START
+            onDependencyFailure = FailureAction.IGNORE
+            onDependencyCancel = FailureAction.IGNORE
         }
     }
 })
