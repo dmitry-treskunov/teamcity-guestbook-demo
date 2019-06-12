@@ -1,5 +1,10 @@
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
-import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.*
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.FileContentReplacer
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.PullRequests
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.commitStatusPublisher
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.dockerSupport
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.pullRequests
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.replaceContent
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.dockerCommand
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
@@ -88,7 +93,6 @@ object Build_1 : BuildType({
                 filterAuthorRole = PullRequests.GitHubRoleFilter.MEMBER_OR_COLLABORATOR
             }
         }
-
         commitStatusPublisher {
             vcsRootExtId = "${DslContext.settingsRoot.id}"
             publisher = github {
