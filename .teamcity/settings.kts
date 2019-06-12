@@ -257,6 +257,29 @@ object Deploy : Project({
     buildType(DeployGuestbook)
     buildType(DeployStaging)
     buildTypesOrder = arrayListOf(DeployStaging, DeployGuestbook)
+
+    features {
+        feature {
+            type = "project-graphs"
+            id = "PROJECT_EXT_6"
+            param("series", """
+                    [
+                      {
+                        "type": "valueType",
+                        "title": "Time Spent in Queue",
+                        "sourceBuildTypeId": "Guestbook_DeployStaging",
+                        "key": "TimeSpentInQueue"
+                      }
+                    ]
+                """.trimIndent())
+            param("format", "duration")
+            param("hideFilters", "")
+            param("title", "Commit to Deployment delay")
+            param("defaultFilters", "")
+            param("seriesTitle", "Serie")
+        }
+    }
+
 })
 
 object DeployGuestbook : BuildType({
