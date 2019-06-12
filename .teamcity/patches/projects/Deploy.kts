@@ -25,8 +25,10 @@ changeProject(RelativeId("Deploy")) {
                       }
                     ]
                 """.trimIndent())
-                param("format", "text")
+                param("format", "duration")
+                param("hideFilters", "")
                 param("title", "Time in the Build Queue")
+                param("defaultFilters", "")
                 param("seriesTitle", "Serie")
             }
         }
