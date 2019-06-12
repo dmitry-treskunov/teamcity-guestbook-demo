@@ -4,6 +4,8 @@ import jetbrains.buildServer.configs.kotlin.v2018_2.*
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.PullRequests
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildFeatures.pullRequests
+import jetbrains.buildServer.configs.kotlin.v2018_2.failureConditions.BuildFailureOnMetric
+import jetbrains.buildServer.configs.kotlin.v2018_2.failureConditions.failOnMetricChange
 import jetbrains.buildServer.configs.kotlin.v2018_2.ui.*
 
 /*
@@ -12,6 +14,19 @@ To apply the patch, change the buildType with id = 'Build'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("Build")) {
+    failureConditions {
+        add {
+            failOnMetricChange {
+                metric = BuildFailureOnMetric.MetricType.TEST_COUNT
+                units = BuildFailureOnMetric.MetricUnit.DEFAULT_UNIT
+                comparison = BuildFailureOnMetric.MetricComparison.LESS
+                compareTo = build {
+                    buildRule = lastFinished()
+                }
+            }
+        }
+    }
+
     features {
         add {
             pullRequests {
