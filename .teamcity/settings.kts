@@ -140,6 +140,7 @@ object BuildBackendImage : BuildType({
     dependencies {
         dependency(Build_1) {
             snapshot {
+                reuseBuilds = ReuseBuilds.ANY
             }
 
             artifacts {
@@ -210,6 +211,7 @@ object BuildFrontendImage : BuildType({
     dependencies {
         dependency(BuildFrontend) {
             snapshot {
+                reuseBuilds = ReuseBuilds.ANY
             }
 
             artifacts {
@@ -239,8 +241,7 @@ object Build_ScanForVulnerabilities : BuildType({
 
     dependencies {
         snapshot(Build_1) {
-            runOnSameAgent = true
-            reuseBuilds = ReuseBuilds.NO
+            reuseBuilds = ReuseBuilds.ANY
         }
     }
 })
@@ -294,6 +295,7 @@ object DeployGuestbook : BuildType({
 
     dependencies {
         snapshot(DeployStaging) {
+            reuseBuilds = ReuseBuilds.ANY
         }
     }
 })
@@ -344,12 +346,13 @@ object DeployStaging : BuildType({
 
     dependencies {
         snapshot(BuildBackendImage) {
-            reuseBuilds = ReuseBuilds.NO
+            reuseBuilds = ReuseBuilds.ANY
         }
         snapshot(BuildFrontendImage) {
+            reuseBuilds = ReuseBuilds.ANY
         }
         snapshot(Build_ScanForVulnerabilities) {
-            reuseBuilds = ReuseBuilds.NO
+            reuseBuilds = ReuseBuilds.ANY
             onDependencyFailure = FailureAction.IGNORE
             onDependencyCancel = FailureAction.IGNORE
         }
