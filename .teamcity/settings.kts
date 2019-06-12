@@ -330,6 +330,7 @@ object DeployStaging : BuildType({
     triggers {
         vcs {
             branchFilter = ""
+            triggerRules = "-:.teamcity/**"
         }
     }
 
