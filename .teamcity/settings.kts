@@ -67,6 +67,17 @@ object Build_1 : BuildType({
         }
     }
 
+    failureConditions {
+        failOnMetricChange {
+            metric = BuildFailureOnMetric.MetricType.TEST_COUNT
+            units = BuildFailureOnMetric.MetricUnit.DEFAULT_UNIT
+            comparison = BuildFailureOnMetric.MetricComparison.LESS
+            compareTo = build {
+                buildRule = lastFinished()
+            }
+        }
+    }
+
     features {
         pullRequests {
             vcsRootExtId = "${DslContext.settingsRoot.id}"
@@ -75,6 +86,16 @@ object Build_1 : BuildType({
                     token = "credentialsJSON:6a41e8a0-1293-48e3-93c6-b961214f46e3"
                 }
                 filterAuthorRole = PullRequests.GitHubRoleFilter.MEMBER_OR_COLLABORATOR
+            }
+        }
+
+        commitStatusPublisher {
+            vcsRootExtId = "${DslContext.settingsRoot.id}"
+            publisher = github {
+                githubUrl = "https://api.github.com"
+                authType = personalToken {
+                    token = "credentialsJSON:acac33de-a843-4933-b273-64b5f9184815"
+                }
             }
         }
     }
