@@ -42,7 +42,7 @@ changeProject(DslContext.projectId) {
                 param("description", "")
                 param("cloud-code", "google")
                 param("terminate-idle-time", "30")
-                param("enabled", "true")
+                param("enabled", "false")
                 param("secure:accessKey", "")
             }
         }
