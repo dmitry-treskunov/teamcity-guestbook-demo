@@ -3,6 +3,7 @@ package patches.buildTypes
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
 import jetbrains.buildServer.configs.kotlin.v2018_2.failureConditions.BuildFailureOnMetric
 import jetbrains.buildServer.configs.kotlin.v2018_2.failureConditions.failOnMetricChange
+import jetbrains.buildServer.configs.kotlin.v2018_2.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.v2018_2.ui.*
 
 /*
@@ -11,6 +12,13 @@ To apply the patch, change the buildType with id = 'Build'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("Build")) {
+    triggers {
+        add {
+            vcs {
+            }
+        }
+    }
+
     failureConditions {
         val feature1 = find<BuildFailureOnMetric> {
             failOnMetricChange {
