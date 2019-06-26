@@ -11,7 +11,7 @@ accordingly, and delete the patch script.
 changeBuildType(RelativeId("BuildBackendImage")) {
     requirements {
         add {
-            exists("env.DERBY_HOME")
+            doesNotExist("env.DERBY_HOME")
         }
     }
 }
