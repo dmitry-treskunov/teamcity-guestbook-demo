@@ -85,24 +85,6 @@ object Build_1 : BuildType({
     }
 
     features {
-        pullRequests {
-            vcsRootExtId = "${DslContext.settingsRoot.id}"
-            provider = github {
-                authType = token {
-                    token = "credentialsJSON:6a41e8a0-1293-48e3-93c6-b961214f46e3"
-                }
-                filterAuthorRole = PullRequests.GitHubRoleFilter.MEMBER_OR_COLLABORATOR
-            }
-        }
-        commitStatusPublisher {
-            vcsRootExtId = "${DslContext.settingsRoot.id}"
-            publisher = github {
-                githubUrl = "https://api.github.com"
-                authType = personalToken {
-                    token = "credentialsJSON:acac33de-a843-4933-b273-64b5f9184815"
-                }
-            }
-        }
     }
 })
 
