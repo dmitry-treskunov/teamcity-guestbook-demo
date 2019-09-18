@@ -74,6 +74,7 @@ object Build_1 : BuildType({
 
     failureConditions {
         failOnMetricChange {
+            enabled = false
             metric = BuildFailureOnMetric.MetricType.TEST_COUNT
             units = BuildFailureOnMetric.MetricUnit.DEFAULT_UNIT
             comparison = BuildFailureOnMetric.MetricComparison.LESS
