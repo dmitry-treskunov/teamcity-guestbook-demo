@@ -13,11 +13,4 @@ class GuestBookEntryTest {
 
         assertEquals("author", entry.getAuthor());
     }
-
-    @Test
-    void test_message() {
-        GuestBookEntry entry = new GuestBookEntry("author", "Hello!", "imageUrl", now());
-
-        assertEquals("Hello!", entry.getMessage());
-    }
 }
