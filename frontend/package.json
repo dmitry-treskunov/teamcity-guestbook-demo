@@ -79,7 +79,7 @@
     "prettier": "^1.16.4",
     "sinon": "7.3.0",
     "sinon-chai": "3.3.0",
-    "stylelint": "9.10.1",
+    "stylelint": "15.10.1",
     "xvfb-maybe": "0.2.1",
     "yo": "2.0.5"
   },
